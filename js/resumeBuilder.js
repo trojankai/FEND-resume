@@ -5,10 +5,22 @@ This is empty on purpose! Your code to build the resume will go here.
 
 
 /*$("#main").append(["Kaisha Ansley-Gutierrez"]);
+<<<<<<< HEAD
 var awesomeThoughts = "I am Kaisha and I am AWESOME!";
 console.log(awesomeThoughts);
 var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
 $("#main").append(funThoughts);
+=======
+
+var awesomeThoughts = "I am Kaisha and I am AWESOME!";
+
+console.log(awesomeThoughts);
+
+var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
+
+$("#main").append(funThoughts);
+
+>>>>>>> origin/master
 console.log(funThoughts);*/
 var name = "Kaisha Ansley-Gutierrez";
 var role = "Front End Web Developer";
@@ -22,8 +34,12 @@ var formattedEmail = HTMLemail.replace("%data%", email);
 /*$("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 */
+<<<<<<< HEAD
 
 /*var bio = {
+=======
+var bio = {
+>>>>>>> origin/master
     'name': formattedName,
     'role': formattedRole,
     'email': formattedEmail,
@@ -31,6 +47,7 @@ $("#header").prepend(formattedName);
     'welcome-message': 'Welcome to mypage',
     'skills': 'images/fry.jpg'
     
+<<<<<<< HEAD
 };*/
 
 var bio = {
@@ -56,6 +73,9 @@ var bio = {
 
 
 
+=======
+};
+>>>>>>> origin/master
 
 $("#header").append(bio.name);
 $("#header").append(bio.role);
@@ -67,4 +87,8 @@ work.position = "Freelance Web/Graphic Designer and Stay-at-Home Mother";
 
 $('#header').append(work.city);
 
+<<<<<<< HEAD
 $("#header").append(bio.contactInfo);
+=======
+$("#header").append(bio.contactInfo);
+>>>>>>> origin/master
