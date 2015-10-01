@@ -10,46 +10,84 @@ var bio = {
         "github": "trojankai",
         "twitter": "trojankai",
         "location": "Whittier, CA"
-    },
+         },
     "welcomeMessage": "Welcome to my Page",
-    "skills": ["knitting and crocheting", "taking care of twins"," learning quickly", "excellent oral and written communication", "cooking"],
+    "skills": ["HTML and CSS","knitting and crocheting", "baby wranglin'","learning quickly", "customer service", "time management", "bath renovations"],
     "biopic": "images/fry.jpg",
-    "display": {}
-};
+}
+
+//adds formatted bio info to page...
+ 
+var formattedName = HTMLheaderName.replace("%data%", bio["name"]);
+var formattedRole = HTMLheaderRole.replace("%data%", bio["role"]);
+formattedNameRole = formattedName + formattedRole
+$("#header").prepend(formattedNameRole);
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+$("#header").append(formattedBioPic);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#topContacts").append(formattedLocation);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#topContacts").append(formattedEmail);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#topContacts").append(formattedGithub);
+
+displaySkills = function(){
+$("#header").append(HTMLskillsStart);
+	for (var skill in bio.skills) {
+	  var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
+	  $("#skills-h3:last").append(formattedSkills);
+  };
+}
+displaySkills();
 
 
+
+
+//education object
 var education = {
 
     "schools": [
 		{
 		"name": "University of Southern California",
-		"city": "Los Angeles, CA",
+		"location": "Los Angeles, CA",
 		"degree": "BA",
 		"major": "Social Sciences emphasis Psychology",
-		"dates":"",
-		"schoolUrl": "www.usc.edu"
+		"dates": 2012,
+		"url": "www.usc.edu"
 		},
 		{
 		"name": "University of California, Irvine, Extension Program",
 		"major": "Light Construction and Development Management courses",
-		"dates": "",
-		"schoolUrl":"",
+		"location": "Irvine, CA",
+		"dates": 2009 + "incomplete",
+		"url": "www.unex.uci.edu"
 			
 		},
 		{
 		"name": "California State University, Dominguez Hills",
 		"major": "Project Management courses",
-		"dates":"",
+		"degree": "certificate",
+		"location": "Carson, CA",
+		"dates": 2009 + "incomplete",
+		"url": "www.csudh.edu"
 		}
 	],
 	"onlineCourses": [
 		{
-		"name": "Udacity",
-		"courses": ["HTML and CSS","Javascript Basics","Responsive Web Design"]
+		"school": "Udacity",
+		"title": "Front End Web Development ",
+		"date": 2015,
+		"url": "www.udacity.com/nanodegree"
 		},
 		{
 		"name": "Coursera",
-		"courses": "Introduction to Interactive Programming in Python"
+		"title": "Introduction to Interactive Programming in Python",
+		"date": "July 2015 - ",
+		"url": "www.coursera.com"
 		}
 	
 	]
@@ -68,17 +106,17 @@ var work = {
 		"title": "(Acting) Supervisor, Member Services",
 		"location": "Norwalk, CA",
 		"dates": "Feb 2006 to June 2007",
-		"description": "Call center environment-handled member concerns, handled escalated (irate) calls. Assisted in the training and development of member service representatives. Responsible for motivating representatives to meet and maintain company/ departmental standards. Responsible for issuing corrective actions or terminating employees when necessary. Evaluated and corrected timesheets to ensure payroll completed on-time."
+		"description": "Call center environment-handled member concerns, handled escalated calls. Assisted in the training and development of member service representatives. Responsible for motivating representatives to meet and maintain company/ departmental standards. Responsible for issuing corrective actions or terminating employees when necessary. Evaluated and corrected timesheets to ensure payroll completed on-time."
 		},
 		{
-		"employer":"Campus Cruiser, USC",
+		"employer":"USC Campus Cruiser",
 		"title": "Driver, Dispatcher, Trainer, Field Supervisor",
 		"location": "Los Angeles, CA",
 		"dates": "Oct 2002 to Jan 2006",
 		"description": "Trained incoming employees to work in the call center, as well as handle dispatched calls while maintaining impeccable customer service and providing safety to patrons. Opened and closed shifts, inspected vehicles for damage, patrolled field to insure that policies and procedures are properly followed by cruisers(drivers). Duties also included handling complaints and special calls, such as disabled patrons requiring wheelchair assistance."
 		}
 	]
-};
+}
 var projects = {
 	"projects":[
 		{
@@ -97,16 +135,12 @@ var projects = {
 }
 
 
-//formatting and adding sections to the webpage
-var formattedName = HTMLheaderName.replace("%data%", bio["name"]);
-var formattedRole = HTMLheaderRole.replace("%data%", bio["role"]);
-formattedNameRole = formattedName + formattedRole
-$("#header").prepend(formattedNameRole);
 
 
 
+//display work function...
 function displayWork(){
-for (job in work.jobs){
+   for (var job in work.jobs){
     $("#workExperience").append(HTMLworkStart);
     
     var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -123,7 +157,34 @@ for (job in work.jobs){
 }
 };
 displayWork();		
-		
+
+
+//encapsulation of method display on object projects
+
+projects.display = function() {
+  for (var project in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
+      
+    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+    $(".project-entry:last").append(formattedTitle);
+    
+    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+    $(".project-entry:last").append(formattedDates);
+    
+    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+    $(".project-entry:last").append(formattedDescription);
+      
+    if(projects.projects[project].images.length > 0) {
+      for (image in projects.projects[project].images) {
+        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+        $(".project-entry:last").append(formattedImage);
+      }
+    }
+      
+  }
+}
+
+//internationalize button code--linked to helper.js
 function inName(name) {
     name = name.trim().split(" ");
     console.log(name);
@@ -134,4 +195,6 @@ function inName(name) {
     
 }
 
-$('#main').append(internationalizeButton);
+//$('#main').append(internationalizeButton);
+$('#mapDiv').append(googleMap);
+
