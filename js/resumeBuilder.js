@@ -120,15 +120,15 @@ var work = {
 var projects = {
 	"projects":[
 		{
-		"title":"",
-		"dates":"",
-		"description":"",
+		"title":"Project 0",
+		"dates":"Aug 2015",
+		"description":"Started the journey of becomming a Front End Developer",
 		"images":"",		
 		},
 		{
-		"title":"",
-		"dates":"",
-		"description":"",
+		"title":"Re- branding an Elementary School",
+		"dates":"Jan 2015",
+		"description":"Designed a new logo for Dolores Huerta Elementary school",
 		"images":"",
 		}
 	]
@@ -183,6 +183,9 @@ projects.display = function() {
       
   }
 }
+projects.display();
+
+
 
 //internationalize button code--linked to helper.js
 function inName(name) {

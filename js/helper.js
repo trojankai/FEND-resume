@@ -113,7 +113,13 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true
+    disableDefaultUI: true,
+	backgroundColor: 'black',
+	draggable: true,
+	panControl: false,
+	scaleControl: false,
+	scrollwheel: false,
+	zoomControl: false
   };
 
   /* 
