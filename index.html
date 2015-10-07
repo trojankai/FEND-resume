@@ -23,7 +23,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
   <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet">
-
+  <!--link to fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Slabo+27px|Oswald:400,300|Cutive+Mono' rel='stylesheet' type='text/css'>
   <!--
   jQuery is a common JavaScript library for reading and making changes to the
   Document Object Model (DOM). The DOM is a tree that contains information
@@ -38,17 +39,48 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   you can't accomplish with vanilla (regular) JavaScript.
   -->
   <script src="js/jQuery.js"></script>
+  <script src="js/jquery.panelSnap.js"></script>
 
   <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
+  <!--<script>
+    jQuery(function($) {
+        $('body').panelSnap();
+      });
+  </script>
+  <script>
+  jQuery(function($) {
+    var options = {
+      $menu: false,
+      menuSelector: 'a',
+      panelSelector: '> section',
+      namespace: '.panelSnap',
+      onSnapStart: function(){},
+      onSnapFinish: function(){},
+      onActivate: function(){},
+      directionThreshold: 50,
+      slideSpeed: 200,
+      easing: 'linear',
+      offset: 0,
+      keyboardNavigation: {
+        enabled: false,
+        nextPanelKey: 40,
+        previousPanelKey: 38,
+        wrapAround: true
+      }
+    };
 
+    $('body').panelSnap(options);
+  });
+</script>
+  </script>-->
   <!--
   Uncomment the <script> tag below when you're ready to add an interactive
   Google Map to your resume!
   -->
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
-  <meta name="viewport" content="width=device-width initial-scale =1">
+  <meta name="viewport" content="width=device-width initial-scale=1">
 </head>
 <body>
   <div id="main">
@@ -60,27 +92,45 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
+  <section>
     <div id="header" class="center-content clear-fix">
       <ul id="topContacts" class="flex-box"></ul>
     </div>
-	  <div style="clear: both;"></div>
+  </section>
+
+    <div style="clear: both;"></div>
+
+  <section>
     <div id="workExperience" class="gray">
       <h2>Work Experience</h2>
     </div>
+  </section>
+
+  <section>
     <div id="projects">
       <h2>Projects</h2>
     </div>
+  </section>
+
+  <section>
     <div id="education" class="gray">
       <h2>Education</h2>
     </div>
+  </section>
+
+  <section>
     <div id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
     </div>
+  </section>
+
+  <section>
     <div id="lets-connect" class="dark-gray">
       <h2 class="orange center-text">Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
       </ul>
     </div>
+  </section>
   </div>
 
   <!--
@@ -135,6 +185,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.backgroundColor = 'red';
     }
+
   </script>
+
+
 </body>
 </html>
