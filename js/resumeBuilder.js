@@ -11,13 +11,12 @@ var bio = {
         "twitter": "trojankai",
         "location": "Whittier, CA"
          },
-    "welcomeMessage": "Welcome to my Page",
+    "welcomeMessage": "Hardworking and Incredible",
     "skills": ["HTML and CSS","knitting and crocheting", "baby wranglin'","learning quickly", "customer service", "time management", "bath renovations"],
     "biopic": "images/profilePic.jpg"
+
   };
 
-
-//adds formatted bio info to page...
   bio.display = function(){
     var formattedName = HTMLheaderName.replace("%data%", bio["name"]);
     var formattedRole = HTMLheaderRole.replace("%data%", bio["role"]);
@@ -49,6 +48,7 @@ var bio = {
   displaySkills();
 };
 bio.display();
+
 
 
 
@@ -100,19 +100,22 @@ var education = {
 
 	]
 };
+
 education.display = function() {
-  for (var school in education.schools) {
+  for (var i in education.schools) {
     $("#education").append(HTMLschoolStart);
 
-    var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+    var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
     $(".education-entry:last").append(formattedSchoolName);
 
-    var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+    var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
     $(".education-entry:last").append(formattedSchoolDates);
 
-    var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+    var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
     $(".education-entry:last").append(formattedSchoolMajor);
 
+    var formattedDegree = HTMLschoolDegree.replace('%data%',education.schools[i].degree);
+    $('education-entry:last').prepend(formattedDegree);
 
     }
   };
@@ -170,13 +173,13 @@ var projects = {
 		"title":"Project 0",
 		"dates":"Aug 2015",
 		"description":"Started the journey of becomming a Front End Developer",
-		"images":"images/197x148.gif",
+		"images":["images/197x148.gif"]
 		},
 		{
-		"title":"Re- branding an Elementary School",
+		"title":"Re-branding an Elementary School",
 		"dates":"Jan 2015",
 		"description":"Designed a new logo for Dolores Huerta Elementary school",
-		"images":"images/197x148.gif",
+		"images":["images/197x148.gif"]
 		}
 	]
 }
@@ -194,10 +197,12 @@ projects.display = function() {
     var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
     $(".project-entry:last").append(formattedDescription);
 
-    if(projects.projects[project].images.length > 0) {
-      for (image in projects.projects[project].images) {
+  if(projects.projects[project].images.length > 0) {
+      for (var i in projects.projects.images) {
         var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
           $(".project-entry:last").append(formattedImage);
+          console.log(image);
+          console.log(projects.projects[project].images[i]);
       }
     }
 
