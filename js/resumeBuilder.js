@@ -1,6 +1,8 @@
  /*
 This is empty on purpose! Your code to build the resume will go here.
  */
+
+//bio object to go to header
 var bio = {
     "name": "Kaisha Ansley-Gutierrez",
     "role": "Front End Web Developer",
@@ -10,14 +12,14 @@ var bio = {
         "github": "trojankai",
         "twitter": "trojankai",
         "location": "Whittier, CA"
-         },
+    },
     "welcomeMessage": "Hardworking and Incredible",
-    "skills": ["HTML and CSS","knitting and crocheting", "baby wranglin'","learning quickly", "customer service", "time management", "bath renovations"],
+    "skills": ["HTML and CSS", "knitting and crocheting", "baby wranglin'" , "learning quickly", "customer service", "time management",  "bath renovations"],
     "biopic": "images/profilePic.jpg"
 
-  };
+};
 
-  bio.display = function(){
+bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio["name"]);
     var formattedRole = HTMLheaderRole.replace("%data%", bio["role"]);
     formattedNameRole = formattedName + formattedRole
@@ -40,7 +42,7 @@ var bio = {
 
     displaySkills = function(){
       $("#header").append(HTMLskillsStart);
-  	   for (var skill in bio.skills) {
+ 		 for (var skill in bio.skills) {
   	      var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
   	       $("#skills-h3:last").append(formattedSkills);
     };
@@ -197,12 +199,12 @@ projects.display = function() {
     var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
     $(".project-entry:last").append(formattedDescription);
 
-  if(projects.projects[project].images.length > 0) {
-      for (var i in projects.projects.images) {
-        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
-          $(".project-entry:last").append(formattedImage);
-          console.log(image);
-          console.log(projects.projects[project].images[i]);
+        if(projects.projects[project].images.length > 0) {
+          for (var i in projects.projects[project].images) {
+            var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+              $(".project-entry:last").append(formattedImage);
+              console.log(image);
+              console.log(projects.projects[project].images[i]);
       }
     }
 
@@ -215,8 +217,6 @@ projects.display();
 
 
 
-
-//encapsulation of method display on object projects
 
 
 
