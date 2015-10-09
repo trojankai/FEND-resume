@@ -203,8 +203,8 @@ projects.display = function() {
           for (var i in projects.projects[project].images) {
             var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
               $(".project-entry:last").append(formattedImage);
-              console.log(image);
-              console.log(projects.projects[project].images[i]);
+
+              // console.log(projects.projects[project].images[i]);
       }
     }
 
