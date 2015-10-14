@@ -22,7 +22,7 @@ var bio = {
 bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio["name"]);
     var formattedRole = HTMLheaderRole.replace("%data%", bio["role"]);
-    formattedNameRole = formattedName + formattedRole
+    formattedNameRole = formattedName + formattedRole;
     $("#header").prepend(formattedNameRole);
 
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
@@ -45,9 +45,9 @@ bio.display = function() {
  		 for (var skill in bio.skills) {
   	      var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
   	       $("#skills-h3:last").append(formattedSkills);
-    };
-  }
-  displaySkills();
+    }
+  };
+    displaySkills();
 };
 bio.display();
 
@@ -64,16 +64,16 @@ var education = {
 		{
 		"name": "University of Southern California",
 		"location": "Los Angeles, CA",
-		"degree": "BA",
+		"degree": "B.A.",
 		"major": "Social Sciences emphasis Psychology",
-		"dates": 2012,
+		"dates": 'August 2001-Jan 2006 and Jan - May 2012',
 		"url": "www.usc.edu"
 		},
 		{
 		"name": "University of California, Irvine, Extension Program",
 		"major": "Light Construction and Development Management courses",
 		"location": "Irvine, CA",
-		"dates": 2009 + " incomplete",
+		"dates": 2009 + " - incomplete",
 		"url": "www.unex.uci.edu"
 
 		},
@@ -82,7 +82,7 @@ var education = {
 		"major": "Project Management courses",
 		"degree": "certificate",
 		"location": "Carson, CA",
-		"dates": 2009 + " incomplete",
+		"dates": 2009 + " - incomplete",
 		"url": "www.csudh.edu"
 		}
 	],
@@ -90,7 +90,7 @@ var education = {
 		{
 		"school": "Udacity",
 		"title": "Front End Web Development ",
-		"date": 2015,
+		"date": "August 2015 - present",
 		"url": "www.udacity.com/nanodegree"
 		},
 		{
@@ -118,10 +118,25 @@ education.display = function() {
 
     var formattedDegree = HTMLschoolDegree.replace('%data%',education.schools[i].degree);
     $('education-entry:last').prepend(formattedDegree);
+  
+  }};
 
-    }
-  };
+online.display = function(){
+    if(education.onlineCourses.length > 0) {
+      for (var o in education.onlineCourses) {
+      $("#education").append(HTMLonlineClasses);
+
+     var formattedonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[o].title);
+      $(".education-entry:last").append(formattedonlineTitle);
+
+      var formattedOnlineName = HTMLonlineSchool.replace("%data%", education.onlineCourses[o].name);
+      $(".education-entry:last").append(formattedOnlineName);
+
+     var formattedOnlineDate = HTMLschoolDates.replace("%data%", education.onlineCourses[o].date);
+      $(".education-entry:last").append(formattedOnlineDate);
+      }}};
 education.display();
+online.display();
 
 //work object
 var work = {
@@ -148,7 +163,7 @@ var work = {
 		"description": "Trained incoming employees to work in the call center, as well as handle dispatched calls while maintaining impeccable customer service and providing safety to patrons. Opened and closed shifts, inspected vehicles for damage, patrolled field to insure that policies and procedures are properly followed by cruisers(drivers). Duties also included handling complaints and special calls, such as disabled patrons requiring wheelchair assistance."
 		}
 	]
-}
+};
 //display work function...
 function displayWork(){
    for (var job in work.jobs){
@@ -166,7 +181,7 @@ function displayWork(){
     var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
     $(".work-entry:last").append(formattedDescription);
 }
-};
+}
 displayWork();
 
 var projects = {
@@ -174,7 +189,7 @@ var projects = {
 		{
 		"title":"Project 0",
 		"dates":"Aug 2015",
-		"description":"Started the journey of becomming a Front End Developer",
+		"description":"Started the journey of becoming a Front End Developer",
 		"images":["images/197x148.gif"]
 		},
 		{
@@ -184,7 +199,7 @@ var projects = {
 		"images":["images/197x148.gif"]
 		}
 	]
-}
+};
 
 projects.display = function() {
   for (var project in projects.projects) {
@@ -209,7 +224,7 @@ projects.display = function() {
     }
 
   }
-}
+};
 projects.display();
 
 
@@ -229,7 +244,7 @@ function inName(name) {
     name[1] = name[1].toUpperCase();
     name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
 
-    return name[0] + " "+name[1]
+    return name[0] + " "+name[1];
 
 }
 
