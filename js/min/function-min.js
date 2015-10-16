@@ -1,0 +1,1 @@
+$(document).ready(function(){$(window).scroll(function(){var n=$(this).scrollTop();n>=300&&$("#workExperience").addClass("animate")})});

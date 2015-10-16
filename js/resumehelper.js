@@ -288,10 +288,10 @@ bio.display = function() {
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formattedWelcome = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);  
   
-    var picMessage = formattedBioPic + formattedWelcome;
-    $('#header').append(picMessage);
-//    $("#header").append(formattedBioPic);
-//    $('#header').append(formattedWelcome);
+//    var picMessage = formattedBioPic + formattedWelcome;
+//    $('#header').append(picMessage);
+    $("#header").append(formattedBioPic);
+    
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
     $("#topContacts").append(formattedLocation);
     $('#footerContacts').append(formattedLocation);
@@ -304,7 +304,7 @@ bio.display = function() {
     $("#topContacts").append(formattedGithub);
     $('#footerContacts').append(formattedGithub);
     
-    
+    $('#header').append(formattedWelcome);
   
     displaySkills = function(){
       $("#header").append(HTMLskillsStart);

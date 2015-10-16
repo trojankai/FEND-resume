@@ -17,18 +17,13 @@ h6 {
   display: block;
   margin: auto; /*centers main container*/
   border-radius: 5px;
-  
+
 }
 
 body {
   background-color: #8d99ae;
-}
-
-section {
-  padding-bottom: 20px;
-}
-
-body{
+  -webkit-animation: mymove 7s infinite; /* Chrome, Safari, Opera */
+  animation: mymove 7s infinite;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -38,16 +33,23 @@ body{
           flex-wrap: wrap;
 }
 
-.clear-fix {
-  overflow: auto;
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    50% {background-color: white;}
 }
 
-.education-entry,
-.work-entry,
-.project-entry {
-  padding-left: 40px;
-  color:#140912;
+/* Standard syntax */
+@keyframes mymove {
+    50% {background-color: white;}
 }
+
+
+
+section {
+  padding-bottom: 20px;
+}
+
+
 
 h1 {
   font-size: 40px;
@@ -88,12 +90,12 @@ h5 {
 }
 
 hr {
-  border-color: black;
+  border-color: #a59797;
 }
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #5A5A5A;
+  color: #151111;
   line-height: 16px;
   float: left;
 }
@@ -123,20 +125,55 @@ a {
   margin-top: 10px;
   display: block;
 }
+.animate {
+  transition: 2s ease-in-out;
+  -moz-transition: 2s ease-in-out;
+  -webkit-transition: 2s ease-in-out;
+}
+
+#workExperience.animate h2 {
+  transform: translate(10em, 0);
+  -moz-transform: translate(10em, 0);
+  -webkit-transform: translate(10em, 0);
+
+}
+
+#project.animate h2{
+  transform: translate(10em, 0);
+  -moz-transform: translate(10em, 0);
+  -webkit-transform: translate(10em, 0);
+
+}
+
+#education.animate h2 {
+  transform: translate(3em, 0);
+  -moz-transform: translate(3em, 0);
+  -webkit-transform: translate(3em, 0);
+
+}
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
+  font-size: 16px;
   color: #430909;
   line-height: 18px;
-  color: orange;
+  color: white;
 }
 
 #skills-h3 {
   color: #a52626;
   padding-top: 20px;
-  float: left;
-  
+}
+
+.clear-fix {
+  overflow: auto;
+}
+
+.education-entry,
+.work-entry,
+.project-entry {
+  padding-left: 40px;
+  color:#140912;
 }
 
 .orange {
@@ -158,7 +195,7 @@ a {
   background-color: #ad6565;
   padding: 0 0 10px 0;
   clear: both;
-  
+
 }
 
 /*
@@ -228,7 +265,7 @@ img {
 
 span {
   padding: 5px;
-  
+
 }
 
 #lets-connect {
@@ -269,7 +306,7 @@ span {
   display: block;
   height: 100%;
   margin: 0 5%;
-  
+
 }
 
 #mapDiv {
