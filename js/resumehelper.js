@@ -286,12 +286,11 @@ bio.display = function() {
     $("#header").prepend(formattedNameRole);
 
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-    var formattedWelcome = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);  
-  
-//    var picMessage = formattedBioPic + formattedWelcome;
-//    $('#header').append(picMessage);
+    var formattedWelcome = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
+
+
     $("#header").append(formattedBioPic);
-    
+
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
     $("#topContacts").append(formattedLocation);
     $('#footerContacts').append(formattedLocation);
@@ -299,13 +298,13 @@ bio.display = function() {
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
     $("#topContacts").append(formattedEmail);
     $('#footerContacts').append(formattedEmail);
-    
+
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
     $("#topContacts").append(formattedGithub);
     $('#footerContacts').append(formattedGithub);
-    
+
     $('#header').append(formattedWelcome);
-  
+
     displaySkills = function(){
       $("#header").append(HTMLskillsStart);
  		 for (var skill in bio.skills) {
@@ -361,7 +360,7 @@ var education = {
 		"url": "www.coursera.com"
 		}
 	],
-  
+
   displaySchools: function() {
       for (var e in education.schools) {
         $("#education").append(HTMLschoolStart);
@@ -396,8 +395,8 @@ var education = {
 
   education.displaySchools();
   education.displayOnlineCourses();
-  
-  
+
+
 //work object
 var work = {
 	"jobs":[
@@ -426,14 +425,15 @@ var work = {
 };
 //display work function...
 function displayWork(){
-   for (var job in work.jobs){
+  for (var job in work.jobs){
     $("#workExperience").append(HTMLworkStart);
 
     var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
     var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
+    var formattedWlocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
 
-    $(".work-entry:last").append(formattedEmployerTitle);
+    $(".work-entry:last").append(formattedEmployerTitle + formattedWlocation);
 
     var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
     $(".work-entry:last").append(formattedDates);
@@ -445,14 +445,14 @@ function displayWork(){
 displayWork();
 
 
-//project object 
+//project object
 var projects = {
 	"projects":[
 		{
 		"title":"Project 0",
 		"dates":"Aug 2015",
 		"description":"Started the journey of becoming a Front End Developer",
-		"images":["images/197x148.gif"]
+		"images":["images/project1.jpg"]
 		},
 		{
 		"title":"Re-branding an Elementary School",
@@ -499,7 +499,7 @@ projects.display();
 
 
 
-//internationalize button code--linked above 
+//internationalize button code--linked above
 function inName(name) {
     name = name.trim().split(" ");
     console.log(name);

@@ -1,12 +1,21 @@
 $(document).ready(function() {
-
     $(window).scroll(function() {
 
       var y = $(this).scrollTop();
 
-      if (y >= 300) {
+      if (y >= 400) {
 
         $('#workExperience').addClass('animate');
+      }
+
+      if (y >= 800) {
+
+        $('#projects').addClass('animate');
+      }
+
+      if (y >= 950) {
+
+        $('#education').addClass('animate');
       }
 
     });
