@@ -24,6 +24,8 @@ body {
   background-color: #8d99ae;
   -webkit-animation: mymove 7s infinite; /* Chrome, Safari, Opera */
   animation: mymove 7s infinite;
+
+  /*flex-box*/
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -35,12 +37,12 @@ body {
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {
-    50% {background-color: white;}
+    50% {background-color: #e0e0e3;}
 }
 
 /* Standard syntax */
 @keyframes mymove {
-    50% {background-color: white;}
+    50% {background-color: #e0e0e3;}
 }
 
 
@@ -65,6 +67,8 @@ h2 {
   color: #140912;
   line-height: 29px;
   padding: 10px;
+  /*position relative in order to animate*/
+  position: relative;
 }
 
 h3 {
@@ -125,30 +129,31 @@ a {
   margin-top: 10px;
   display: block;
 }
-.animate {
+/*.animate {
   transition: 2s ease-in-out;
   -moz-transition: 2s ease-in-out;
   -webkit-transition: 2s ease-in-out;
-}
+  color: whit
+}*/
 
-#workExperience.animate h2 {
-  transform: translate(10em, 0);
-  -moz-transform: translate(10em, 0);
-  -webkit-transform: translate(10em, 0);
+#workExperience.animate h2{
+  transform: translateX(20px);
+  -moz-transform:translate(20px);
+  -webkit-transform: translate(20px);
 
 }
 
 #projects.animate h2{
-  transform: translate(10em, 0);
-  -moz-transform: translate(10em, 0);
-  -webkit-transform: translate(10em, 0);
+  transform: translate(400px, 0);
+  -moz-transform: translate(400px, 0);
+  -webkit-transform: translate(400px, 0);
 
 }
 
 #education.animate h2 {
-  transform: translate(10em, 0);
-  -moz-transform: translate(10em, 0);
-  -webkit-transform: translate(10em, 0);
+  transform: translate(400px, 0);
+  -moz-transform: translate(400px, 0);
+  -webkit-transform: translate(400px, 0);
 
 }
 
@@ -188,7 +193,7 @@ a {
 .white-text {
   font-weight: normal;
   color: #DBDBDB;
-  font-size: 18pxs
+  font-size: 18px;
 }
 
 .gray {
@@ -260,19 +265,17 @@ ul {
 
 img {
   padding: 2px;
-
 }
 
 span {
   padding: 5px;
-
 }
 
 #lets-connect {
   text-align: center;
   color: white;
-
 }
+
 
 /* Media queries to handle various device widths */
 
@@ -293,8 +296,11 @@ span {
     margin-top: 10%;
   }
   .biopic {
-    width: 100px;
-    height: 100px;
+    width:50px;
+    height: 50px;
+  }
+  #name{
+    display: table-footer-group;
   }
   .welcome-message {
     display: block;
@@ -303,14 +309,18 @@ span {
   header {
     height: 600px;
   }
-
+  .white-text {
+    font-size: 0.7em;
+  }
+  li {
+    display: inline-block;
+  }
 }
 
 #map {
   display: block;
   height: 100%;
   margin: 0 5%;
-
 }
 
 #mapDiv {

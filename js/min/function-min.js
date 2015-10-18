@@ -1,1 +1,1 @@
-$(document).ready(function(){$(window).scroll(function(){var a=$(this).scrollTop();a>=400&&$("#workExperience").addClass("animate"),a>=800&&$("#projects").addClass("animate"),a>=950&&$("#education").addClass("animate")})});
+$(document).ready(function(){$(window).scroll(function(){var e=$(this).scrollTop();e===$(window).height()-100&&$("#workExperience").addClass("animate"),e<$(window).height()&&$("#workExperience").removeClass("animate")})});

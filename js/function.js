@@ -1,22 +1,25 @@
 $(document).ready(function() {
     $(window).scroll(function() {
 
-      var y = $(this).scrollTop();
+      var wScroll = $(this).scrollTop();
 
-      if (y >= 400) {
-
+      if (wScroll === $(window).height()- 100) {
         $('#workExperience').addClass('animate');
       }
-
-      if (y >= 800) {
-
-        $('#projects').addClass('animate');
+      if (wScroll < $(window).height()) {
+        $('#workExperience').removeClass('animate');
       }
 
-      if (y >= 950) {
 
-        $('#education').addClass('animate');
-      }
+      // if (wScroll >= $(window).height()) {
+      //
+      //   $('#projects').addClass('animate');
+      // }
+      //
+      // if (wScroll >= $(window).height() - 400) {
+      //
+      //   $('#education').addClass('animate');
+      // }
 
     });
 
@@ -35,32 +38,32 @@ $(document).ready(function() {
 //
 //
 // }});
-// //when you scroll to certain position
+
 //
-//   jQuery(function($) {
-//     $('body').panelSnap();
-//       });
-//
-//   jQuery(function($) {
-//     var options = {
-//       $menu: false,
-//       menuSelector: 'a',
-//       panelSelector: '> section',
-//       namespace: '.panelSnap',
-//       onSnapStart: function(){},
-//       onSnapFinish: function(){},
-//       onActivate: function(){},
-//       directionThreshold: 50,
-//       slideSpeed: 200,
-//       easing: 'linear',
-//       offset: 0,
-//       keyboardNavigation: {
-//         enabled: false,
-//         nextPanelKey: 40,
-//         previousPanelKey: 38,
-//         wrapAround: true
-//       }
-//     };
-//
-//     $('body').panelSnap(options);
-//   });
+  // jQuery(function() {
+  //   $('body').panelSnap();
+  //     });
+  //
+  // jQuery(function() {
+  //   var options = {
+  //     $menu: false,
+  //     menuSelector: 'a',
+  //     panelSelector: 'section',
+  //     namespace: '.panelSnap',
+  //     onSnapStart: function(){},
+  //     onSnapFinish: function(){},
+  //     onActivate: function(){},
+  //     directionThreshold: 50,
+  //     slideSpeed: 200,
+  //     easing: 'linear',
+  //     offset: 0,
+  //     keyboardNavigation: {
+  //       enabled: false,
+  //       nextPanelKey: 40,
+  //       previousPanelKey: 38,
+  //       wrapAround: true
+  //     }
+  //   };
+  //
+  //   $('#main').panelSnap(options);
+  // });
