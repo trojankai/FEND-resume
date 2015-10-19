@@ -257,7 +257,7 @@ window.addEventListener('load', initializeMap);
 // and adjust map bounds
 window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-  map.fitBounds(mapBounds)
+  map.fitBounds(mapBounds);
 });
 
 // this is the start of resumebuilder.js
@@ -275,45 +275,42 @@ var bio = {
     },
     "welcomeMessage": "I am Hardworking and Incredible",
     "skills": ["HTML and CSS", "knitting and crocheting", "baby wranglin'" , "learning quickly", "customer service", "time management",  "bath renovations"],
-    "biopic": "images/profilePic.jpg"
+    "biopic": "images/profilePic.jpg",
+    display: function(){
+      var formattedName = HTMLheaderName.replace("%data%", bio.name);
+      var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+      var formattedNameRole = formattedName + formattedRole;
+      $("#header").prepend(formattedNameRole);
 
-};
-
-bio.display = function() {
-    var formattedName = HTMLheaderName.replace("%data%", bio.name);
-    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-    formattedNameRole = formattedName + formattedRole;
-    $("#header").prepend(formattedNameRole);
-
-    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-    var formattedWelcome = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
+      var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+      var formattedWelcome = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
 
 
-    $("#header").append(formattedBioPic);
+      $("#header").append(formattedBioPic);
 
-    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").append(formattedLocation);
-    $('#footerContacts').append(formattedLocation);
+      var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+      $("#topContacts").append(formattedLocation);
+      $('#footerContacts').append(formattedLocation);
 
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-    $("#topContacts").append(formattedEmail);
-    $('#footerContacts').append(formattedEmail);
+      var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+      $("#topContacts").append(formattedEmail);
+      $('#footerContacts').append(formattedEmail);
 
-    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-    $("#topContacts").append(formattedGithub);
-    $('#footerContacts').append(formattedGithub);
+      var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+      $("#topContacts").append(formattedGithub);
+      $('#footerContacts').append(formattedGithub);
 
-    $('#header').append(formattedWelcome);
+      $('#header').append(formattedWelcome);
 
-    displaySkills = function(){
       $("#header").append(HTMLskillsStart);
- 		 for (var skill in bio.skills) {
-  	      var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
-  	       $("#skills-h3:last").append(formattedSkills);
+      for (var skill in bio.skills) {
+          var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
+           $("#skills-h3:last").append(formattedSkills);
     }
-  };
-    displaySkills();
+
+}
 };
+
 bio.display();
 
 //education object and dispaly function
@@ -324,13 +321,13 @@ var education = {
 		"name": "University of Southern California",
 		"location": "Los Angeles, CA",
 		"degree": "B.A.",
-		"majors": "Social Sciences emphasis Psychology",
+		"majors": ["Social Sciences emphasis Psychology"],
 		"dates": 'August 2001-Jan 2006 and Jan - May 2012',
 		"url": "www.usc.edu"
 		},
 		{
 		"name": "University of California, Irvine, Extension Program",
-		"majors": "Light Construction and Development Management courses",
+		"majors": ["Light Construction and Development Management courses"],
 		"degree": "Certificate",
     "location": "Irvine, CA",
 		"dates": 2009 + " - incomplete",
@@ -339,7 +336,7 @@ var education = {
 		},
 		{
 		"name": "California State University, Dominguez Hills",
-		"majors": "Project Management courses",
+		"majors": ["Project Management courses"],
 		"degree": "Certificate",
 		"location": "Carson, CA",
 		"dates": 2009 + " - complete program incomplete",
@@ -362,23 +359,24 @@ var education = {
 	],
 
   displaySchools: function() {
-      for (var e in education.schools) {
+      for (var e = 0; e < education.schools.length; e++) {
         $("#education").append(HTMLschoolStart);
         var formattedName = HTMLschoolName.replace("%data%", education.schools[e].name);
         var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[e].location);
-        var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[e].majors);
+        
         var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[e].degree);
         var formattedDates = HTMLschoolDates.replace("%data%", education.schools[e].dates);
         $(".education-entry:last").append(formattedName + formattedDegree);
         $(".education-entry:last").append(formattedDates);
         $(".education-entry:last").append(formattedLocation);
+        var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[e].majors);
         $(".education-entry:last").append(formattedMajors);
       }
     },
     displayOnlineCourses: function() {
       if (education.onlineCourses.length > 0) {
         $("#education").append(HTMLonlineClasses);
-        for (var e in education.onlineCourses) {
+        for (var e = 0; e < education.onlineCourses.length; e++) {
           $("#education").append(HTMLschoolStart);
           var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[e].title);
           formattedTitle = formattedTitle.replace("%url%", education.onlineCourses[e].url);
@@ -387,7 +385,7 @@ var education = {
           var formattedURL = HTMLonlineURL.replace("%url%", education.onlineCourses[e].url);
           $(".education-entry:last").append(formattedTitle + formattedSchool);
           $(".education-entry:last").append(formattedDates);
-          $(".education-entry:last").append("<br><div></div>");
+          $(".education-entry:last").append("<br>");
         }
       }
     }
@@ -399,7 +397,7 @@ var education = {
 
 //work object
 var work = {
-	"jobs":[
+	"jobs": [
 		{
 		"employer":"University of California, Irvine",
 		"title": "Senior Building Maintenance Worker",
@@ -421,33 +419,29 @@ var work = {
 		"dates": "Oct 2002 to Jan 2006",
 		"description": "Trained incoming employees to work in the call center, as well as handle dispatched calls while maintaining impeccable customer service and providing safety to patrons. Opened and closed shifts, inspected vehicles for damage, patrolled field to insure that policies and procedures are properly followed by cruisers(drivers). Duties also included handling complaints and special calls, such as disabled patrons requiring wheelchair assistance."
 		}
-	]
+	],
+  display: function(){
+    $('#workExperience').append(HTMLworkStart);
+    for(var i=0; i<work.jobs.length; i++){
+      var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
+      var formattedTitle = HTMLworkTitle.replace('%data%',work.jobs[i].title);
+      var formattedEmployerTitle= formattedEmployer + formattedTitle;
+      var formattedDates = HTMLworkDates.replace('%data%', work.jobs[i].dates);
+      var formattedLocation = HTMLworkLocation.replace('%data%',work.jobs[i].location);
+      var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[i].description)
+      $('.work-entry:last').append(formattedEmployerTitle, formattedDates, formattedLocation, formattedDescription);
+    }
+
+  }
 };
 //display work function...
-function displayWork(){
-  for (var job in work.jobs){
-    $("#workExperience").append(HTMLworkStart);
 
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    var formattedWlocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
-
-    $(".work-entry:last").append(formattedEmployerTitle + formattedWlocation);
-
-    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-    $(".work-entry:last").append(formattedDates);
-
-    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-    $(".work-entry:last").append(formattedDescription);
-}
-}
-displayWork();
+work.display();
 
 
 //project object
 var projects = {
-	"projects":[
+	"project":[
 		{
 		"title":"Project 0",
 		"dates":"Aug 2015",
@@ -460,43 +454,22 @@ var projects = {
 		"description":"Designed a new logo for Dolores Huerta Elementary school",
 		"images":["images/DHES-1.png"]
 		}
-	]
-};
-
-projects.display = function() {
-  for (var project in projects.projects) {
-    $("#projects").append(HTMLprojectStart);
-
-    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-    $(".project-entry:last").append(formattedTitle);
-
-    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-    $(".project-entry:last").append(formattedDates);
-
-    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-    $(".project-entry:last").append(formattedDescription);
-
-        if(projects.projects[project].images.length > 0) {
-          for (var i in projects.projects[project].images) {
-            var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
-              $(".project-entry:last").append(formattedImage);
-
-              // console.log(projects.projects[project].images[i]);
-      }
+	],
+  display: function(){
+    $('#projects').append(HTMLprojectStart);
+    for(var i = 0; i < projects.project.length; i++){
+      var formattedProjectName = HTMLprojectTitle.replace('%data%', projects.project[i].title);
+      var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.project[i].dates);
+      var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.project[i].description);
+      var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.project[i].images);
+      $('.project-entry').append(formattedProjectName, formattedProjectDates, formattedProjectDescription, formattedProjectImage);
     }
+
 
   }
 };
+
 projects.display();
-
-
-
-
-
-
-
-
-
 
 
 //internationalize button code--linked above
