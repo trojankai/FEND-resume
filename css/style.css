@@ -35,6 +35,7 @@ body {
           flex-wrap: wrap;
 }
 
+/*info on css animation from w3schools.org*/
 /* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {
     50% {background-color: #e0e0e3;}
