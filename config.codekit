@@ -36,6 +36,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/images\/DHES-1.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 33336,
+		"inputAbbreviatedPath": "\/images\/DHES-1.png",
+		"outputAbbreviatedPath": "\/images\/DHES-1.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/fry.jpg": {
 		"fileType": 16384,
 		"ignore": 0,

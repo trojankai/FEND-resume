@@ -4,7 +4,7 @@ $(document).ready(function() {
       var wScroll = $(this).scrollTop();
 
       if (wScroll === $(window).height()- 100) {
-        $('#workExperience').addClass('animate');
+        $('#workExperience').toggleClass('animate');
       }
       if (wScroll < $(window).height()) {
         $('#workExperience').removeClass('animate');

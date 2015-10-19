@@ -1,1 +1,1 @@
-$(document).ready(function(){$(window).scroll(function(){var e=$(this).scrollTop();e===$(window).height()-100&&$("#workExperience").addClass("animate"),e<$(window).height()&&$("#workExperience").removeClass("animate")})});
+$(document).ready(function(){$(window).scroll(function(){var e=$(this).scrollTop();e===$(window).height()-100&&$("#workExperience").toggleClass("animate"),e<$(window).height()&&$("#workExperience").removeClass("animate")})});

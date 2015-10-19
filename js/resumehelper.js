@@ -458,7 +458,7 @@ var projects = {
 		"title":"Re-branding an Elementary School",
 		"dates":"Jan 2015",
 		"description":"Designed a new logo for Dolores Huerta Elementary school",
-		"images":["images/197x148.gif"]
+		"images":["images/DHES-1.png"]
 		}
 	]
 };
