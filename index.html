@@ -12,7 +12,7 @@
   <!--link to fonts-->
   <link href='https://fonts.googleapis.com/css?family=Slabo+27px|Oswald:400,300|Cutive+Mono' rel='stylesheet' type='text/css'>
 
-  <script src="js/jQuery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
   <!--
   Uncomment the <script> tag below when you're ready to add an interactive
@@ -24,42 +24,55 @@
 </head>
 <body>
   <div id="main">
+    <nav>
+      <div class="handle">≡</div>
+      <br>
+      <br>
+      <ul>
+        <li><a href="#header">Bio </a></li>
+        <li><a href="#workExperience">Work </a></li>
+        <li><a href="#education">Education </a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#mapDiv">Map of my Herstory</a></li>
+      </ul> 
+      
+    </nav>
+    <div id="spacer"></div>
 
-    <header id="header" class="center-content clear-fix">
+    <div id="header" class="center-content clear-fix">
       <ul id="topContacts" class="flex-box"></ul>
-    </header>
-
+    </div>
     <div style="clear: both;"></div>
 
-
+ 
     <section id="workExperience" class="gray">
+      <br>
       <h2>Work Experience</h2>
     </section>
 
-
+  
 
     <section id="projects">
+      <br>
       <h2>Projects</h2>
     </section>
 
+  
 
     <section id="education" class="gray">
+      <br>
       <h2>Education</h2>
     </section>
-
-
 
     <section id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
     </section>
-
 
     <section id="lets-connect" class="dark-gray">
       <h2 class="orange center-text">Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
       </ul>
     </section>
-
   </div>
 
   <!--
@@ -118,7 +131,11 @@
     }
 
   </script>
-
+  <script t>
+     $('.handle').on('click', function(){
+        $('nav ul').toggleClass('showing');
+     });
+  </script>
 
 
 </body>

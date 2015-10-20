@@ -1,7 +1,7 @@
 body,
 div,
 section,
-header,
+nav,
 ul,
 li,
 p,
@@ -15,7 +15,7 @@ h6 {
   font-family: 'Oswald', sans-serif;
   max-width: 800px;
   display: block;
-  margin: auto; /*centers main container*/
+  margin: auto; 
   border-radius: 5px 5px;
 
 }
@@ -24,7 +24,6 @@ body {
   background-color: #8d99ae;
   -webkit-animation: mymove 7s infinite; /* Chrome, Safari, Opera */
   animation: mymove 7s infinite;
-
   /*flex-box*/
   display: -webkit-box;
   display: -webkit-flex;
@@ -46,9 +45,41 @@ body {
     50% {background-color: #e0e0e3;}
 }
 
-section {
-  padding-bottom: 20px;
+
+#spacer {
+  padding: 5px;
+
 }
+nav ul {
+  background-color: #8d99ae;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  z-index: 4;
+  transition: max-height 0.4s;
+  -webkit-transition: max-height 0.4s;
+  -moz-transition: max-height 0.4s;
+  -ms-transition: max-height 0.4s;
+  -o-transition: max-height 0.4s;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 0 40px;
+}
+
+nav ul li a {
+  color: white;
+
+}
+nav ul li a:hover {
+  color: black;
+}
+
 
 h1 {
   font-size: 40px;
@@ -124,7 +155,6 @@ p {
 a {
   color: #2b2d42;
   text-decoration: none;
-  margin-top: 10px;
   display: block;
 }
 
@@ -240,8 +270,26 @@ span {
   color: white;
 }
 
+.handle {
+  width: 100%;
+  background-color: inherit;
+  text-align: left;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: white;
+  display: none;
+  font-size: 2em;
+  background-color: #8d99ae;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 0 0 10px;
+  margin: 0;
 
+
+}
 /* Media queries to handle various device widths */
+
 
 @media only screen and (max-width: 1024px) {
   #lets-connect {
@@ -282,7 +330,26 @@ span {
     display: table-header-group;
   }
 }
-
+@media screen and (max-width: 720px) {
+  nav ul {
+    max-height: 0;
+  }
+  .showing {
+    max-height: 18em;
+  }
+  nav ul li{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
+    text-align: left;
+  }
+  .handle{
+    display: block;
+  }
+  #header {
+    margin-top: 40px;
+  }
+}
 #map {
   display: block;
   height: 100%;
